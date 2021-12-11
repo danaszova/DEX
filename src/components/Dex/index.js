@@ -1,1 +1,1 @@
-export { default } from "./applicationDex";
+export { default } from "./coreDex";

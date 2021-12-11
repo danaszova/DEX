@@ -7,17 +7,14 @@ import TokenPrice from "components/TokenPrice";
 import ERC20Balance from "components/ERC20Balance";
 import ERC20Transfers from "components/ERC20Transfers";
 import InchDex from "components/InchDex";
-//----------------------------------------------
 import Dex from "components/Dex";
-
-//----------------------------------------------
 import NFTBalance from "components/NFTBalance";
 import Wallet from "components/Wallet";
 import { Layout, Tabs } from "antd";
 import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
 import "./style.css";
-import QuickStart from "components/QuickStart";
+import Project from "components/Project";
 import Contract from "components/Contract/Contract";
 import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
@@ -84,7 +81,7 @@ const App = ({ isServerInfo }) => {
         <div style={styles.content}>
           <Switch>
             <Route exact path="/quickstart">
-              <QuickStart isServerInfo={isServerInfo} />
+              <Project isServerInfo={isServerInfo} />
             </Route>
             <Route path="/wallet">
               <Wallet />
@@ -143,7 +140,7 @@ const App = ({ isServerInfo }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            boilerplate
+            My DAPP copyright - all rights reserved
           </a>
           , every star makes us very happy!
         </Text>
