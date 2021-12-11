@@ -7,6 +7,10 @@ import TokenPrice from "components/TokenPrice";
 import ERC20Balance from "components/ERC20Balance";
 import ERC20Transfers from "components/ERC20Transfers";
 import InchDex from "components/InchDex";
+//----------------------------------------------
+import Dex from "components/Dex";
+
+//----------------------------------------------
 import NFTBalance from "components/NFTBalance";
 import Wallet from "components/Wallet";
 import { Layout, Tabs } from "antd";
@@ -98,6 +102,12 @@ const App = ({ isServerInfo }) => {
                 </Tabs.TabPane>
               </Tabs>
             </Route>
+          <Route path="/dex">
+            <Dex />
+            </Route>
+
+
+
             <Route path="/erc20balance">
               <ERC20Balance />
             </Route>
