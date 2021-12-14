@@ -36,6 +36,7 @@ const styles = {
   },
 };
 
+
 const nativeAddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
 const chainIds = {
@@ -52,19 +53,26 @@ const getChainIdByName = (chainName) => {
 
 const IsNative = (address) => address === "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
-function InchDex({ chain }) {
+function CoreDex({ chain }) {
   const { trySwap, tokenList, getQuote } = useInchDex(chain);
 
   const { Moralis, isInitialized, chainId } = useMoralis();
-  const [isFromModalActive, setFromModalActive] = useState(false);
-  const [isToModalActive, setToModalActive] = useState(false);
-  const [fromToken, setFromToken] = useState();
-  const [toToken, setToToken] = useState();
-  const [fromAmount, setFromAmount] = useState();
-  const [quote, setQuote] = useState();
-  const [currentTrade, setCurrentTrade] = useState();
-  const { fetchTokenPrice } = useTokenPrice();
-  const [tokenPricesUSD, setTokenPricesUSD] = useState({});
+  
+  //State handling ----
+  
+  //const [isFromModalActive, setFromModalActive] = useState(false);
+  //const [isToModalActive, setToModalActive] = useState(false);
+  //const [fromToken, setFromToken] = useState();
+  //const [toToken, setToToken] = useState();
+  //const [fromAmount, setFromAmount] = useState();
+  //const [quote, setQuote] = useState();
+  //const [currentTrade, setCurrentTrade] = useState();
+  //const { fetchTokenPrice } = useTokenPrice();
+  //const [tokenPricesUSD, setTokenPricesUSD] = useState({});
+
+
+/*
+
 
   const fromTokenPriceUsd = useMemo(
     () => (tokenPricesUSD?.[fromToken?.["address"]] ? tokenPricesUSD[fromToken?.["address"]] : null),
@@ -139,7 +147,8 @@ function InchDex({ chain }) {
     if (currentTrade) getQuote(currentTrade).then((quote) => setQuote(quote));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentTrade]);
-
+*/
+ /*
   const PriceSwap = () => {
     const Quote = quote;
     if (!Quote || !tokenPricesUSD?.[toToken?.["address"]]) return null;
@@ -161,10 +170,19 @@ function InchDex({ chain }) {
     );
   };
 
+*/
+
+
+
+
   return (
     <>
       <Card style={styles.card} bodyStyle={{ padding: "18px" }}>
-        <Card style={{ borderRadius: "1rem" }} bodyStyle={{ padding: "0.8rem" }}>
+        
+        
+        
+        
+        {/*<Card style={{ borderRadius: "1rem" }} bodyStyle={{ padding: "0.8rem" }}>
           <div style={{ marginBottom: "5px", fontSize: "14px", color: "#434343" }}>From</div>
           <div
             style={{
@@ -296,9 +314,13 @@ function InchDex({ chain }) {
           disabled={!ButtonState.isActive}
         >
           {ButtonState.text}
-        </Button>
+        </Button>*/}
+      
+      
+      
+      
       </Card>
-      <Modal
+      {/*<Modal
         title="Select a token"
         visible={isFromModalActive}
         onCancel={() => setFromModalActive(false)}
@@ -327,16 +349,14 @@ function InchDex({ chain }) {
           setToken={setToToken}
           tokenList={tokenList}
         />
-      </Modal>
+      </Modal>*/}
     </>
   );
 }
 
-//export default InchDex;
+export default CoreDex;
 
-export default ()=>{
-  return <div></div>
-};
+
 
 const Arrow = () => (
   <svg
