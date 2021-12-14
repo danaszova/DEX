@@ -19,6 +19,7 @@ import Contract from "components/Contract/Contract";
 import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
 import MenuItems from "./components/MenuItems";
+import { useThemeSwitcher } from "react-css-theme-switcher";
 const { Header, Footer } = Layout;
 
 const styles = {
@@ -53,11 +54,18 @@ const styles = {
 };
 const App = ({ isServerInfo }) => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } = useMoralis();
+  const { switcher, currentTheme, status, themes } = useThemeSwitcher();  
 
   useEffect(() => {
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated, isWeb3Enabled]);
+
+
+// Avoid theme change flicker
+  if (status === "loading") {
+    return null;
+  }
 
   return (
     <Layout style={{ height: "100vh", overflow: "auto" }}>
