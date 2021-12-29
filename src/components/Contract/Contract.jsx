@@ -7,13 +7,14 @@ import { getEllipsisTxt } from "helpers/formatters";
 import ContractMethods from "./ContractMethods";
 
 export default function Contract() {
+
   const { Moralis } = useMoralis();
   const [responses, setResponses] = useState({});
   const { contractName, networks, abi } = contractInfo;
 
   const contractAddress = useMemo(() => networks[1337].address, [networks]);
 
-  /**Live query */
+  //Live Query
   const { data } = useMoralisQuery("Events", (query) => query, [], {
     live: true,
   });
@@ -22,6 +23,7 @@ export default function Contract() {
     if (!abi) return [];
     return abi.filter((method) => method["type"] === "function");
   }, [abi]);
+
 
   const openNotification = ({ message, description }) => {
     notification.open({
@@ -50,7 +52,7 @@ export default function Contract() {
           border: "1px solid #e7eaf3",
           borderRadius: "0.5rem",
         }}
-      >
+      > 
         <Form.Provider
           onFormFinish={async (name, { forms }) => {
             const params = forms[name].getFieldsValue();
@@ -100,7 +102,8 @@ export default function Contract() {
         >
           <ContractMethods displayedContractFunctions={displayedContractFunctions} responses={responses} />
         </Form.Provider>
-      </Card>
+        </Card>
+      
       <Card
         title={"Contract Events"}
         size="large"
@@ -119,4 +122,8 @@ export default function Contract() {
       </Card>
     </div>
   );
+
+
+
+
 }

@@ -2,8 +2,10 @@ import { Button, Card, Form, Input } from "antd";
 import Text from "antd/lib/typography/Text";
 
 const ContractMethods = ({ displayedContractFunctions, responses }) => {
-  return displayedContractFunctions.map((item, key) => (
-    <Card title={`${key + 1}. ${item?.name}`} size="small" style={{ marginBottom: "20px" }}>
+  return displayedContractFunctions.map((item, key) => { 
+  
+    return (
+    <Card key={key} title={`${key + 1}. ${item?.name}`} size="small" style={{ marginBottom: "20px" }}>
       <Form layout="vertical" name={`${item.name}`}>
         {item.inputs.map((input, key) => (
           <Form.Item
@@ -26,7 +28,10 @@ const ContractMethods = ({ displayedContractFunctions, responses }) => {
         </Form.Item>
       </Form>
     </Card>
-  ));
+  )}
+  
+  
+  );
 };
 
 export default ContractMethods;
