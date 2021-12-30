@@ -116,9 +116,9 @@ const App = ({ isServerInfo }) => {
             <Route path="/">
               <Redirect to="/about" />
             </Route>
-            <Route path="/ethereum-boilerplate">
+            {/*<Route path="/ethereum-boilerplate">
               <Redirect to="/about" />
-            </Route>
+            </Route>*/}
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>
             </Route>
