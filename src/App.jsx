@@ -9,7 +9,7 @@ import ERC20Transfers from "components/ERC20Transfers";
 import InchDex from "components/InchDex";
 import NFTBalance from "components/NFTBalance";
 import Wallet from "components/Wallet";
-import { Layout, Tabs } from "antd";
+import { Layout, Tabs, Image } from "antd";
 import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
 import "./style.css";
@@ -18,6 +18,9 @@ import Contract from "components/Contract/Contract";
 import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
 import MenuItems from "./components/MenuItems";
+import logo from "./Assets/sasquatchredsmall.png";
+//import logo from "./Assets/test.png";
+
 const { Header, Footer } = Layout;
 
 const styles = {
@@ -52,7 +55,7 @@ const styles = {
 };
 const App = ({ isServerInfo }) => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } = useMoralis();
-
+  
   useEffect(() => {
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -65,7 +68,7 @@ const App = ({ isServerInfo }) => {
           <Logo />
           <MenuItems />
           <div style={styles.headerRight}>
-            <Chains />
+            <Chains isServerInfo={isServerInfo} />
             <TokenPrice
               address="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
               chain="eth"
@@ -116,9 +119,9 @@ const App = ({ isServerInfo }) => {
             <Route path="/">
               <Redirect to="/about" />
             </Route>
-            <Route path="/ethereum-boilerplate">
+            {/*<Route path="/ethereum-boilerplate">
               <Redirect to="/about" />
-            </Route>
+            </Route>*/}
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>
             </Route>
@@ -165,6 +168,17 @@ const App = ({ isServerInfo }) => {
 };
 
 export const Logo = () => (
+ <Image
+      width={100}
+      src={logo}
+    />
+);
+export const Logo9 = () => (
+<img src={logo} alt="Girl in a jacket" width="100"></img>
+);
+
+
+export const Logo2 = () => (
   <div style={{ display: "flex" }}>
     <svg width="60" height="38" viewBox="0 0 50 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
