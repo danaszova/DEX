@@ -20,12 +20,12 @@ function TokenPrice(props) {
 
   const toggleDisplayStyle = () => setIsUSDMode(!isUSDMode);
 
-  const noLogoToken = "https://etherscan.io/images/main/empty-token.png";
+  //const noLogoToken = "https://etherscan.io/images/main/empty-token.png";
 
   return (
     <div style={styles.token}>
-      <img src={props.image || noLogoToken} alt="logo" style={{ height: props?.size || "35px" }} />
-      <span style={{ cursor: "pointer" }} onClick={toggleDisplayStyle} title={`Show in ${isUSDMode ? "ETH" : "USD"}`}>
+      {/*<img src={props.image || noLogoToken} alt="logo" style={{ height: props?.size || "35px" }} />*/}
+      <span style={{ cursor: "pointer" }} onClick={toggleDisplayStyle} title={`Show in ${isUSDMode ? "AVAX" : "USD"}`}>
         {formattedData && (isUSDMode ? formattedData.formattedUsd : formattedData.formattedNative)}
       </span>
     </div>
