@@ -62,7 +62,7 @@ const App = ({ isServerInfo }) => {
 
   return (
     <Layout style={{ height: "100vh", overflow: "auto" }}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header style={styles.header}>
           <Logo />
           <MenuItems />

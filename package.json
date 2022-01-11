@@ -1,6 +1,6 @@
 {
   "name": "snowmonster",
-  "homepage": "http://snowmonster.io",
+  "homepage": "http://danaszova.github.io/DEX",
   "version": "0.1.0",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
