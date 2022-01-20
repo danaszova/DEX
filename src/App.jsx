@@ -19,6 +19,11 @@ import Ramper from "components/Ramper";
 import MenuItems from "./components/MenuItems";
 import logo from "./Assets/sasquatchredsmall.png";
 //import logo from "./Assets/test.png";
+import { Swap } from "./components/Swap";
+
+
+
+
 
 const { Header, Footer } = Layout;
 
@@ -85,6 +90,7 @@ const App = ({ isServerInfo }) => {
             <Route exact path="/about">
               <About isServerInfo={isServerInfo} />
             </Route>
+
             <Route path="/wallet">
               <Wallet />
             </Route>
@@ -104,13 +110,11 @@ const App = ({ isServerInfo }) => {
             <Route path="/contract">
               <Contract />
             </Route>
+          <Route exact path="/swap" component={Swap} />
             <Route path="/">
               <Redirect to="/about" />
             </Route>
-            {/*<Route path="/ethereum-boilerplate">
-              <Redirect to="/about" />
-            </Route>*/}
-            <Route path="/nonauthenticated">
+           <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>
             </Route>
           </Switch>

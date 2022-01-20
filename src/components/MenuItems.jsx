@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 function MenuItems() {
   const { pathname } = useLocation();
 
+
+
   return (
     <Menu
       theme="light"
@@ -35,6 +37,9 @@ function MenuItems() {
       </Menu.Item>
       <Menu.Item key="/contract">
         <NavLink to="/contract"> Contract</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/swap">
+        <NavLink to="/swap"> Swap</NavLink>
       </Menu.Item>
     </Menu>
   );
