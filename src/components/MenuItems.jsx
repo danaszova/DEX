@@ -21,6 +21,9 @@ function MenuItems() {
       <Menu.Item key="/wallet">
         <NavLink to="/wallet"> Wallet</NavLink>
       </Menu.Item>
+      <Menu.Item key="/swap">
+        <NavLink to="/swap">Swap</NavLink>
+      </Menu.Item>
       <Menu.Item key="onramp">
         <NavLink to="/onramp"> Fiat</NavLink>
       </Menu.Item>

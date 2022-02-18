@@ -52,7 +52,7 @@ const getChainIdByName = (chainName) => {
 
 const IsNative = (address) => address === "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
-function InchDex({ chain }) {
+function AvaxDex({ chain }) {
   const { trySwap, tokenList, getQuote } = useInchDex(chain);
 
   const { Moralis, isInitialized, chainId } = useMoralis();
@@ -332,7 +332,7 @@ function InchDex({ chain }) {
   );
 }
 
-export default InchDex;
+export default AvaxDex;
 
 const Arrow = () => (
   <svg
