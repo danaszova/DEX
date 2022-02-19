@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useMoralis } from "react-moralis";
 import InchModal from "./components/InchModal";
-import useInchDex from "hooks/useInchDex";
+import useAvaxDex from "hooks/useAvaxDex";
 import { Button, Card, Image, Input, InputNumber, Modal } from "antd";
 import Text from "antd/lib/typography/Text";
 import { ArrowDownOutlined } from "@ant-design/icons";
@@ -53,7 +53,7 @@ const getChainIdByName = (chainName) => {
 const IsNative = (address) => address === "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
 function AvaxDex({ chain }) {
-  const { trySwap, tokenList, getQuote } = useInchDex(chain);
+  const { trySwap, tokenList, getQuote } = useAvaxDex(chain);
 
   const { Moralis, isInitialized, chainId } = useMoralis();
   const [isFromModalActive, setFromModalActive] = useState(false);

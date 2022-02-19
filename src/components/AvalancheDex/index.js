@@ -1,1 +1,1 @@
-export { default } from "./InchDex";
+export { default } from "./avaxDex";
