@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Account from "components/Account";
-import Chains from "components/Chains";
+//import Chains from "components/Chains";
 import TokenPrice from "components/TokenPrice";
 import ERC20Balance from "components/ERC20Balance";
 import ERC20Transfers from "components/ERC20Transfers";
 import NFTBalance from "components/NFTBalance";
 import Wallet from "components/Wallet";
-import { Layout, Image } from "antd";
+import { Layout, Image, Tabs } from "antd";
 import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
 import "./style.css";
@@ -18,7 +18,8 @@ import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
 import MenuItems from "./components/MenuItems";
 import logo from "./Assets/sasquatchredsmall.png";
-//import logo from "./Assets/test.png";
+
+import AvaxDex from "components/AvalancheDex";
 
 const { Header, Footer } = Layout;
 
@@ -67,12 +68,13 @@ const App = ({ isServerInfo }) => {
           <Logo />
           <MenuItems />
           <div style={styles.headerRight}>
-            <Chains isServerInfo={isServerInfo} />
+            {/* Do need need to switch chians in the app - If I show up on other chain could be encouraged or told to switch */}
+            {/*<Chains isServerInfo={isServerInfo} />*/}
             {/*Token price component could be used - should only show price of avalanche really or better yet the snowmonster token */}
             {<TokenPrice
               address="0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
               chain="avalanche"
-              //image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
+              image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
               size="40px"
             />}
             <NativeBalance />
@@ -88,7 +90,19 @@ const App = ({ isServerInfo }) => {
             <Route path="/wallet">
               <Wallet />
             </Route>
-         
+            <Route path="/swap">
+              <Tabs defaultActiveKey="1" style={{ alignItems: "center" }}>
+                <Tabs.TabPane tab={<span>Ethereum</span>} key="1">
+                  <AvaxDex chain="eth" />
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span>Binance Smart Chain</span>} key="2">
+                  <AvaxDex chain="bsc" />
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span>Polygon</span>} key="3">
+                  <AvaxDex chain="polygon" />
+                </Tabs.TabPane>
+              </Tabs>
+            </Route>
             <Route path="/erc20balance">
               <ERC20Balance />
             </Route>
@@ -107,9 +121,9 @@ const App = ({ isServerInfo }) => {
             <Route path="/">
               <Redirect to="/about" />
             </Route>
-            {/*<Route path="/ethereum-boilerplate">
+            <Route path="/ethereum-boilerplate">
               <Redirect to="/about" />
-            </Route>*/}
+            </Route>
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>
             </Route>

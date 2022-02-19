@@ -1,14 +1,14 @@
 import { useState, useEffect, useMemo } from "react";
 import { useMoralis } from "react-moralis";
 import InchModal from "./components/InchModal";
-import useInchDex from "hooks/useInchDex";
+import useAvaxDex from "hooks/useAvaxDex";
 import { Button, Card, Image, Input, InputNumber, Modal } from "antd";
 import Text from "antd/lib/typography/Text";
 import { ArrowDownOutlined } from "@ant-design/icons";
 import { useTokenPrice } from "react-moralis";
 import { tokenValue } from "helpers/formatters";
 import { getWrappedNative } from "helpers/networks";
-// import { useOneInchQuote } from "react-moralis";
+
 
 const styles = {
   card: {
@@ -52,8 +52,8 @@ const getChainIdByName = (chainName) => {
 
 const IsNative = (address) => address === "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
-function InchDex({ chain }) {
-  const { trySwap, tokenList, getQuote } = useInchDex(chain);
+function AvaxDex({ chain }) {
+  const { trySwap, tokenList, getQuote } = useAvaxDex(chain);
 
   const { Moralis, isInitialized, chainId } = useMoralis();
   const [isFromModalActive, setFromModalActive] = useState(false);
@@ -332,7 +332,7 @@ function InchDex({ chain }) {
   );
 }
 
-export default InchDex;
+export default AvaxDex;
 
 const Arrow = () => (
   <svg
